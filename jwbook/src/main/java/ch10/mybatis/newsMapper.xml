@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ch10.mybatis.NewsMapper">
+		<insert id="addNews" parameterType="NewsDTO">
+			insert into news(title,img,date,content) values(#{title},#{img},CURRENT_TIMESTAMP(),#{content})
+		</insert>
+		<select id="getAllNews" resultType="NewsDTO">
+			select aid, title, FORMATDATETIME(date, 'yyyy-mm-dd hh:mm:ss') as cdate from news
+		</select>
+		<select id="getOneNews" resultType="NewsDTO" parameterType="int">
+			select aid, title, img, FORMATDATETIME(date,'yyyy-mm-dd hh:mm:ss') as cdate, content from news where aid=#{aid}
+		</select>
+		<delete id="delete" parameterType="int">
+			delete from news where aid=#{aid}
+		</delete>
+</mapper>

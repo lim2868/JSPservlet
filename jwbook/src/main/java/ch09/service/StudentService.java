@@ -11,7 +11,6 @@ import ch09.model.StudentDAO;
 import ch09.model.StudentDO;
 
 public class StudentService {
-	
 	private StudentDAO dao;
 	
 	public StudentService() {
@@ -23,19 +22,14 @@ public class StudentService {
 	public void insert(HttpServletRequest request, HttpServletResponse response) {
 		StudentDO s = new StudentDO();
 		try {
-			BeanUtils.populate(s, request.getParameterMap());
-		} catch(Exception e) {
+			BeanUtils.populate(s,request.getParameterMap());
+		}catch(Exception e) {
 			e.printStackTrace();
 		}
 		dao.insert(s);
 	}
 	public void delete(HttpServletRequest request, HttpServletResponse response) {
-		StudentDO s = new StudentDO();
-		try {
-			BeanUtils.populate(s, request.getParameterMap());
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-		dao.delete(s);
+		String id = request.getParameter("id");
+		dao.deleteStudent(id);
 	}
 }

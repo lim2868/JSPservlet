@@ -18,7 +18,7 @@ import javax.servlet.http.Part;
 
 import org.apache.commons.beanutils.BeanUtils;
 
-import ch10.model.NewsDAO;
+import ch10.model.NewsDAO2;
 import ch10.model.NewsDTO;
 
 /**
@@ -31,7 +31,7 @@ public class NewsController extends HttpServlet {
        
 	private NewsService ns;
 	private ServletContext ctx;
-	private NewsDAO dao;
+	private NewsDAO2 dao;
 	private NewsDTO n;
 	
 	private final String START_PAGE = "ch10/view/newsList.jsp";
@@ -52,7 +52,7 @@ public class NewsController extends HttpServlet {
 		ns = new NewsService();
 		ctx = getServletContext();
 		n = new NewsDTO();
-		dao = new NewsDAO();
+		dao = new NewsDAO2();
 	}
 
 	/**

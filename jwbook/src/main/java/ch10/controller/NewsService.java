@@ -1,13 +1,8 @@
 package ch10.controller;
 
 import java.sql.SQLException;
-import java.util.List;
 
-import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.Part;
-
-import org.apache.commons.beanutils.BeanUtils;
 
 import ch10.model.NewsDAO;
 import ch10.model.NewsDTO;
@@ -38,7 +33,7 @@ public class NewsService {
 		int aid = Integer.parseInt(request.getParameter("aid"));
 		try {
 			dao.delNews(aid);
-		} catch(SQLException e) {
+		} catch(Exception e) {
 			e.printStackTrace();
 			System.err.println("뉴스 삭제 과정에서 문제 발생");
 			request.setAttribute("error", "뉴스가 정상적으로 삭제되지 않았습니다.");

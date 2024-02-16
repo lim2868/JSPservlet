@@ -15,7 +15,7 @@ import ch09.service.StudentService;
  * Servlet implementation class studentController
  */
 @WebServlet("/studentControl")
-public class studentController extends HttpServlet {
+public class StudentController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -29,7 +29,7 @@ public class studentController extends HttpServlet {
 //		dao = new StudentDAO();
 		ss = new StudentService();
 	}
-    public studentController() {
+    public StudentController() {
         super();
         // TODO Auto-generated constructor stub
     }
